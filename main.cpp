@@ -17,7 +17,7 @@ int main(int argc, char const *argv[]) {
   while(in>>value)
   {
     const int dummy = value;
-    array = new int[dummy][dummy];
+    array [dummy][dummy];
     for (int i = 0; i < value; i++) {
       for (int j = 0; j < value; j++) {
           in>>array[i][j];
