@@ -1,4 +1,5 @@
 #include "Kruskal.cpp"
+#include <fstream>
 int main(int argc, char const *argv[]) {
   /* code */
   if (argc != 2)
@@ -10,12 +11,12 @@ int main(int argc, char const *argv[]) {
 
   int value;
 
-  int[][] array;
+  int array[][];
 
 
   while(in>>value)
   {
-    array = new int[value][value]
+    array = new int[value][value];
     for (int i = 0; i < value; i++) {
       for (int j = 0; j < value; j++) {
           in>>array[i][j];
