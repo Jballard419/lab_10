@@ -51,7 +51,7 @@ void Kruskal(int** cost, int x)
   if (num_sel != (x-1))
     {std::cout << "Kruskal: no soln" << '\n';
     return;
-
+  }
     std::cout << " \n Kruskal:";
     for(int i = 0; i<num_sel; i++)
     {
