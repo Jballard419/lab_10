@@ -11,12 +11,13 @@ int main(int argc, char const *argv[]) {
 
   int value;
 
-  int array[][];
+  int** array;
 
 
   while(in>>value)
   {
-    array = new int[value][value];
+    const int dummy = value;
+    array = new int[dummy][dummy];
     for (int i = 0; i < value; i++) {
       for (int j = 0; j < value; j++) {
           in>>array[i][j];
