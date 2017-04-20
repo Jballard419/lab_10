@@ -15,7 +15,7 @@ Skew_Node<T>* Skew_Heap<T>:: merge(Skew_Node<T>* t1,Skew_Node<T>* t2 )
     return t2;
   if(t2==NULL)
     return t1;
-  if(t1->value>t2->value)
+  if(t1->value->cost>t2->value->cost)
   {
     Skew_Node<T>* temp= t1;
     t1 = t2;
