@@ -2,13 +2,13 @@
 #include "skew_heap.h"
 struct edge_t {
   int x,y,cost;
-  bool operator <(const edge_t& x)
+  bool operator <(const edge_t* x)
   {
-    return this->cost<x.cost;
+    return this->cost<x->cost;
   };
-  bool operator >(const edge_t& x)
+  bool operator >(const edge_t* x)
   {
-    return this->cost>x.cost;
+    return this->cost>x->cost;
   };
   edge_t(int x, int y, int c):x(x),y(y),cost(c){};
 };
