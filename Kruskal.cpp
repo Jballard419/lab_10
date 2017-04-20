@@ -58,5 +58,5 @@ void Kruskal(int** cost, int x)
       std::cout << " <" << soln[i]->x <<","<<soln[i]->y<< "> ";
 
     }
-    std::std::cout <<  '\n';
+    std::cout <<  '\n';
 }
