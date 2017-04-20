@@ -38,11 +38,11 @@ void Kruskal(int** cost, int x)
     temp = edges->findmin();
     edges->deletemin();
 
-    if(notused[temp.x]||notused[temp.y]) // add edge
+    if(notused[temp->x]||notused[temp->y]) // add edge
     {
       soln[num_sel] = temp;
-      notused[temp.x]= false;
-      notused[temp.y]= false;
+      notused[temp->x]= false;
+      notused[temp->y]= false;
       num_sel++;
     }
 
