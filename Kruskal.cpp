@@ -2,14 +2,14 @@
 #include "skew_heap.h"
 struct edge_t {
   int x,y,cost;
-  bool operator <(const edge_t& x,const edge_t& y)
+  bool operator <(const edge_t& x)
   {
-    return x.cost<y.cost
+    return this.cost<x.cost
   };
-  edge_t(int x, int y, int c):x(x),y(y),cost(c);
+  edge_t(int x, int y, int c):x(x),y(y),cost(c){};
 };
 
-void Kruskal(int[][] cost, int x)
+void Kruskal(int** cost, int x)
 {
   //build Q
   Skew_Heap<edge_t>* edges = new Skew_Heap<edge_t>();
