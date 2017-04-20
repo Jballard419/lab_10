@@ -17,8 +17,10 @@ int main(int argc, char const *argv[]) {
   while(in>>value)
   {
     const int dummy = value;
-    array = new int[dummy][dummy];
+    array = new int*[dummy];
+
     for (int i = 0; i < value; i++) {
+      array[i]= new int[value];
       for (int j = 0; j < value; j++) {
           in>>array[i][j];
       }
