@@ -16,16 +16,16 @@ struct edge_t {
 void Kruskal(int** cost, int x)
 {
   //build Q
-  Skew_Heap<edge_t>* edges = new Skew_Heap<edge_t>();
-  edge_t temp = edge_t(0,0,0);
-  edge_t soln[x-1];
+  Skew_Heap<edge_t*>* edges = new Skew_Heap<edge_t*>();
+  edge_t* temp;
+  edge_t* soln[x-1];
   bool notused[x];
   for (int i = 0; i < x; i++) {
     notused[i]= true;
     for (int j = 0; j < i; j++) {
       if(cost[i][j]!= 0)
       {
-         temp=  edge_t(i, j,cost[i][j]);
+         temp= new  edge_t(i, j,cost[i][j]);
          edges->insert(temp);
       }
     }
@@ -55,7 +55,7 @@ void Kruskal(int** cost, int x)
     std::cout << " \n Kruskal:";
     for(int i = 0; i<num_sel; i++)
     {
-      std::cout << " <" << soln[i].x <<","<<soln[i].y<< "> ";
+      std::cout << " <" << soln[i]->x <<","<<soln[i]->y<< "> ";
 
     }
 }
