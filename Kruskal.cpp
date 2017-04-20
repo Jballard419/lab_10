@@ -4,7 +4,7 @@ struct edge_t {
   int x,y,cost;
   bool operator <(const edge_t& x)
   {
-    return this.cost<x.cost
+    return this->cost<x.cost;
   };
   edge_t(int x, int y, int c):x(x),y(y),cost(c){};
 };
@@ -13,7 +13,7 @@ void Kruskal(int** cost, int x)
 {
   //build Q
   Skew_Heap<edge_t>* edges = new Skew_Heap<edge_t>();
-  edge_t temp;
+  edge_t temp = edge_t(0,0,0);
   edge_t[] soln = new edge_t[x-1];
   bool[] notused= new bool[x];
   for (int i = 0; i < x; i++) {
