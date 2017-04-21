@@ -114,7 +114,7 @@ void Prim(int** cost, int x)
   // if (num_sel != (x-1))
   //   {std::cout << "prim: no soln" << '\n';
   //   return;
-  }
+//  }
     std::cout << " \n Prim:";
     for(int i = 0; i<num_sel; i++)
     {
