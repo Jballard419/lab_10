@@ -26,7 +26,7 @@ int main(int argc, char const *argv[]) {
       }
     }
     Kruskal(array, value);
-
+    Prim(array, value);
 
 
   }
