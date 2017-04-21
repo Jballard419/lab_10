@@ -60,3 +60,66 @@ void Kruskal(int** cost, int x)
     }
     std::cout <<  '\n';
 }
+
+
+void Prim(int** cost, int x)
+{
+  edge_t* temp;
+  edge_t* soln[x-1];
+  Skew_Heap<edge_t*>* edges = new Skew_Heap<edge_t*>();
+  bool notused[x];
+  for(int i= 0; i<x; i++)
+  {
+    notused[i]=true;
+  }
+  int num_sel = 0;
+  int v= 0;
+  while(num_sel<(x-1) && !(edges->isempty()))
+  {
+    notused[v]=false;
+    for (int j = o ; j < x; j++)
+    {
+      if(notuse[j]){
+        if(cost[v][j]!= 0)
+        {
+           temp= new  edge_t(v, j,cost[v][j]);
+           edges->insert(temp);
+        }
+      };
+    }
+    while(!(edges->isempty())
+    {
+      temp = edges->findmin();
+      edges->deletemin();
+
+        if(notused[temp->x]||notused[temp->y]) // add edge
+        {
+          if (notused[temp->x])
+          {
+            v =temp->x;
+          }else
+          {
+            v =temp->y;
+          }
+          soln[num_sel] = temp;
+          notused[temp->x]= false;
+          notused[temp->y]= false;
+          num_sel++;
+          break;
+        }
+      }
+
+
+  }
+  if (num_sel != (x-1))
+    {std::cout << "prim: no soln" << '\n';
+    return;
+  }
+    std::cout << " \n Prim:";
+    for(int i = 0; i<num_sel; i++)
+    {
+      std::cout << " <" << soln[i]->x <<","<<soln[i]->y<< "> ";
+
+    }
+    std::cout <<  '\n';
+}
