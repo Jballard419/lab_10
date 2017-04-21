@@ -96,7 +96,11 @@ void Kruskal(int** cost, int x)
 
   }
 
-
+  if (num_sel != (x-1))
+    {
+    std::cout << "Kruskal: no soln" << '\n';
+    return;
+ }
 
     std::cout << " \n Kruskal:";
     for(int i = 0; i<num_sel; i++)
@@ -164,10 +168,10 @@ void Prim(int** cost, int x)
 
 
   }while(num_sel<(x-1) && !(edges->isempty()));
-  // if (num_sel != (x-1))
-  //   {std::cout << "prim: no soln" << '\n';
-  //   return;
-//  }
+  if (num_sel != (x-1))
+    {std::cout << "prim: no soln" << '\n';
+    return;
+ }
     std::cout << " \n Prim:";
     for(int i = 0; i<num_sel; i++)
     {

@@ -29,7 +29,7 @@ int main(int argc, char const *argv[]) {
     std::cout << "Graph" <<num<< ":\n";
     Kruskal(array, value);
     Prim(array, value);
-
+    num++;
 
   }
 
