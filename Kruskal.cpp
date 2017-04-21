@@ -25,7 +25,7 @@ void Kruskal(int** cost, int x)
     for (int j = 0; j < i; j++) {
       if(cost[i][j]!= 0)
       {
-         temp= new  edge_t(i, j,cost[i][j]);
+         temp= new  edge_t( j, i, cost[i][j]);
          edges->insert(temp);
       }
     }
@@ -82,7 +82,14 @@ void Prim(int** cost, int x)
       if(notused[j]){
         if(cost[v][j]!= 0)
         {
-           temp= new  edge_t(v, j,cost[v][j]);
+            if(v<j)
+            {
+              temp= new  edge_t(v, j,cost[v][j]);
+            }
+            else
+            {
+              temp= new  edge_t( j, v,cost[v][j]); //
+            }
            edges->insert(temp);
         }
       }
