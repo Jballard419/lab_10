@@ -20,6 +20,9 @@ void Kruskal(int** cost, int x)
   edge_t* temp;
   edge_t* soln[x-1];
   bool notused[x];
+  int Disjoint[x];
+  int rootx, rooty;
+
   for (int i = 0; i < x; i++) {
     notused[i]= true;
     for (int j = 0; j < i; j++) {
@@ -40,18 +43,61 @@ void Kruskal(int** cost, int x)
 
     if(notused[temp->x]||notused[temp->y]) // add edge
     {
+      if((notused[temp->x]&&notused[temp->y]))
+      {
+        Disjoint[temp->x]=-1;
+        Disjoint[temp->y]=temp->x;
+      }else if (notused[temp->x]) // y was taken
+      {
+        if(Disjoint[temp->y]==-1)
+        {
+          Disjoint[temp->x]=temp->y;
+        }else
+        {
+          Disjoint[temp->x]=Disjoint[temp->y];
+        }
+
+      }else
+      {
+        if(Disjoint[temp->x]==-1)
+        {
+          Disjoint[temp->y]=temp->x;
+        }else
+        {
+          Disjoint[temp->y]=Disjoint[temp->x];
+        }
+      }
+
       soln[num_sel] = temp;
       notused[temp->x]= false;
       notused[temp->y]= false;
       num_sel++;
+    }else
+    {
+      rootx=temp->x;
+      rooty=temp->y;
+
+      while(Disjoint[rootx]!= -1)
+      {
+        rootx = Disjoint[rootx]; // the hunt for -1;
+      }
+      while(Disjoint[rooty]!= -1)
+      {
+        rooty = Disjoint[rooty]; // the hunt for -1;
+      }
+
+      if(rootx!= rooty) //disjointed
+      {
+        Disjoint[rooty]=rootx;
+        soln[num_sel] = temp;
+        num_sel++;
+      }
     }
 
   }
 
-  if (num_sel != (x-1))
-    {std::cout << "Kruskal: no soln" << '\n';
-    return;
-  }
+
+
     std::cout << " \n Kruskal:";
     for(int i = 0; i<num_sel; i++)
     {
