@@ -77,9 +77,9 @@ void Prim(int** cost, int x)
   while(num_sel<(x-1) && !(edges->isempty()))
   {
     notused[v]=false;
-    for (int j = o ; j < x; j++)
+    for (int j = 0 ; j < x; j++)
     {
-      if(notuse[j]){
+      if(notused[j]){
         if(cost[v][j]!= 0)
         {
            temp= new  edge_t(v, j,cost[v][j]);
@@ -87,7 +87,7 @@ void Prim(int** cost, int x)
         }
       };
     }
-    while(!(edges->isempty())
+    while(!(edges->isempty()))
     {
       temp = edges->findmin();
       edges->deletemin();
