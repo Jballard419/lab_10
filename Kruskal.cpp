@@ -74,7 +74,7 @@ void Prim(int** cost, int x)
   }
   int num_sel = 0;
   int v= 0;
-  while(num_sel<(x-1) && !(edges->isempty()))
+  do
   {
     notused[v]=false;
     for (int j = 0 ; j < x; j++)
@@ -85,7 +85,7 @@ void Prim(int** cost, int x)
            temp= new  edge_t(v, j,cost[v][j]);
            edges->insert(temp);
         }
-      };
+      }
     }
     while(!(edges->isempty()))
     {
@@ -110,7 +110,7 @@ void Prim(int** cost, int x)
       }
 
 
-  }
+  }while(num_sel<(x-1) && !(edges->isempty()));
   // if (num_sel != (x-1))
   //   {std::cout << "prim: no soln" << '\n';
   //   return;
