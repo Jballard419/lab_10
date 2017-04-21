@@ -10,8 +10,9 @@ int main(int argc, char const *argv[]) {
   std::ifstream in(argv[1]);
 
   int value;
-
+  in>>value; // cause I don't need the first value
   int** array;
+  int num= 1;
 
 
   while(in>>value)
@@ -25,6 +26,7 @@ int main(int argc, char const *argv[]) {
           in>>array[i][j];
       }
     }
+    std::cout << "Graph" <<num<< ":\n";
     Kruskal(array, value);
     Prim(array, value);
 
